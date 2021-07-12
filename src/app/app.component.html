@@ -1,0 +1,77 @@
+<!-- 
+APPLICATION NAME GOES HERE
+Author: 'me@elwoodberry.com'
+This code is brought to you by Elwood Berry @www.elwoodberry.com 
+-->
+
+<mat-toolbar color="primary">
+  <mat-icon>local_fire_department</mat-icon>
+  <span>Kanban Demo</span>
+</mat-toolbar>
+
+<!-- <app-task *ngFor="let task of todo" [task]="task"></app-task> -->
+
+<div class="content-wrapper">
+  <div class="container-wrapper">
+    <div class="container">
+      <h2>Backlog</h2>
+      <mat-card
+        #todoList="cdkDropList"
+        id="todo"
+        [cdkDropListData]="todo"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListConnectedTo]="[inProgressList, doneList]"
+        cdkDropList
+      >
+        <app-task
+          cdkDrag
+          *ngFor="let task of todo"
+          [task]="task"
+          (edit)="edit( 'todo' $event )"
+        ></app-task>
+      </mat-card>
+    </div>
+    <div class="container">
+      <h2>In Progress</h2>
+      <mat-card
+        #todoList="cdkDropList"
+        id="todo"
+        [cdkDropListData]="todo"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListConnectedTo]="[inProgressList, doneList]"
+        cdkDropList
+      >
+        <app-task
+          cdkDrag
+          *ngFor="let task of todo"
+          [task]="task"
+          (edit)="edit( 'todo' $event )"
+        ></app-task>
+      </mat-card>
+    </div>
+    <div class="container">
+      <h2>Done</h2>
+      <mat-card
+        #todoList="cdkDropList"
+        id="todo"
+        [cdkDropListData]="todo"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListConnectedTo]="[inProgressList, doneList]"
+        cdkDropList
+      >
+        <app-task
+          cdkDrag
+          *ngFor="let task of todo"
+          [task]="task"
+          (edit)="edit( 'todo' $event )"
+        ></app-task>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<!-- 
+-------------------------------------------------
+Copyright 2021 ElwoodBerry.com LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that can be found in the LICENSE file at http://www.elwoodberry.com 
+-->
